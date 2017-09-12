@@ -20,7 +20,9 @@ for (var i = 10; i >= 0; i--) {
   })
 }
 const initial_state = {
-	users: users
+	users: {
+		list: users
+	}
 };
 
 

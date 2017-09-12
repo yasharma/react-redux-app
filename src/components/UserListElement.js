@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Glyphicon} from 'react-bootstrap';
 import PropTypes from 'prop-types';
-export default class UserListElement extends Component {
+import {connect} from 'react-redux';
+class UserListElement extends Component {
 	render() {
 		const user = this.props.user;
 		return (
@@ -17,15 +18,25 @@ export default class UserListElement extends Component {
 			    </a>
 			  </td>
 			  <td>  
-			    <Button bsSize="xsmall" data-id={user.id} data-username={user.username}> 
+			    <Button bsSize="xsmall" data-id={user.id} data-username={user.username} onClick={(e) => this.modalDeleteShow(e)}> 
 			    	Delete <Glyphicon glyph="trash"/>
 			    </Button>
 			  </td>
 			</tr>
 		);
 	}
+
+	modalDeleteShow(event) {
+		this.props.dispatch({
+			type: 'users.modalDeleteShow',
+			id: event.target.dataset.id,
+			username: event.target.dataset.username
+		});
+	}
 }
 
 UserListElement.propTypes = {
 	user : PropTypes.object.isRequired
 }
+
+export default connect()(UserListElement);
