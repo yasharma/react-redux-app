@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import { Router, Route } from 'react-router';
+import { createBrowserHistory } from 'history';
+import { syncHistoryWithStore, routerMiddleware } from 'react-router-redux';
 
 import App from './components/App';
 import { reducers } from './reducers/index';
@@ -24,13 +27,16 @@ const initial_state = {
 		list: users
 	}
 };
+const browserHistory = createBrowserHistory();
+let middleware = applyMiddleware(routerMiddleware(browserHistory));
+const store = createStore(reducers, initial_state, middleware);
+const history = syncHistoryWithStore(browserHistory, store);
 
-
-
-const store = createStore(reducers, initial_state);
 ReactDOM.render(
 	<Provider store={store}>
-		<App />
+		<Router history={history}>
+			<Route path="/" exact component={App} />
+		</Router>	
 	</Provider>,
 	document.getElementById('root')
 );
