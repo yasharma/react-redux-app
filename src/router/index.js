@@ -13,6 +13,7 @@ const routes = [
 	},
 	{
 		path: '/user-edit/:id',
+		exact: false,
 		component: UserEdit
 	},
 	{
@@ -38,5 +39,6 @@ const Router = () => (
 		))}
 	</Switch>
 );
+console.log(Router());
 
 export default Router;
