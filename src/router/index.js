@@ -12,7 +12,7 @@ const routes = [
 		component: Home
 	},
 	{
-		path: '/user-edit',
+		path: '/user-edit/:id',
 		component: UserEdit
 	},
 	{

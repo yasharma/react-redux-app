@@ -14,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import './stylesheets/main.css'; 
 
 let users = [];
-for (var i = 10; i >= 0; i--) {
+for (var i = 28; i >= 0; i--) {
   users.push({
     id: i,
     username: `John ${i}`,
