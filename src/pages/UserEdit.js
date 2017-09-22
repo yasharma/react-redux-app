@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { PageHeader } from 'react-bootstrap';
+import React, { Component } from "react";
+import { PageHeader } from "react-bootstrap";
 
 class UserEdit extends Component {
   	render() {

@@ -1,8 +1,8 @@
-import React, {Component} from 'react';
-import {Table} from 'react-bootstrap';
-import {connect} from 'react-redux';
-import UserListElement from './UserListElement';
-import UserDelete from './UserDelete';
+import React, {Component} from "react";
+import {Table} from "react-bootstrap";
+import {connect} from "react-redux";
+import UserListElement from "./UserListElement";
+import UserDelete from "./UserDelete";
 class UserList extends Component {
 	render() {
 		return (

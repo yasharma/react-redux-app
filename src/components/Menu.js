@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import {Nav, NavItem, Glyphicon} from 'react-bootstrap';
-import {IndexLinkContainer, LinkContainer} from 'react-router-bootstrap';
+import React, { Component } from "react";
+import {Nav, NavItem, Glyphicon} from "react-bootstrap";
+import {IndexLinkContainer, LinkContainer} from "react-router-bootstrap";
 
 class Menu extends Component {
 	render() {

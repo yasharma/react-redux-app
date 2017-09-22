@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Router from '../router';
-import Menu from './Menu';
+import React, { Component } from "react";
+import Router from "../router";
+import Menu from "./Menu";
 class App extends Component {
   	render() {
     	return (

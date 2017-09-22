@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import UserList from '../components/UserList';
+import React, { Component } from "react";
+import UserList from "../components/UserList";
 
 class Home extends Component {
   render() {
