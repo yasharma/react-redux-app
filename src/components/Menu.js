@@ -9,7 +9,7 @@ class Menu extends Component {
 				<IndexLinkContainer to="/">
 					<NavItem>Home</NavItem>
 				</IndexLinkContainer>
-				<LinkContainer to="/user-edit">
+				<LinkContainer to="/add-user">
 					<NavItem>
 						Add User <Glyphicon glyph="plus-sign" />
 					</NavItem>
