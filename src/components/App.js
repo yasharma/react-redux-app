@@ -8,7 +8,9 @@ class App extends Component {
       			<div className="row">
       				<Menu />
       			</div>
-    			<Router />    
+      			<div className="row">
+    				<Router />    
+    			</div>
       		</div>  
     	);
   	}

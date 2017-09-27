@@ -12,7 +12,13 @@ const routes = [
 		component: Home
 	},
 	{
-		path: '/user-edit(/:id)',
+		path: '/add-user',
+		exact: true,
+		component: UserEdit
+	},
+	{
+		path: '/user-edit/:id',
+		exact: true,
 		component: UserEdit
 	},
 	{
