@@ -9,7 +9,7 @@ function* fetchUser(action) {
 }
 
 function* mySaga(argument) {
-	yield takeLatest("users.fetchListSuccess", fetchUser);
+	yield takeLatest("usersFetchList", fetchUser);
 }
 
 export default mySaga;

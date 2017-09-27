@@ -50,6 +50,7 @@ export default function users(state = {}, action) {
 			return new_state;	
 
 		case 'users.fetchListSuccess':
+			new_state = {};
 			new_state.list = action.users;
 			return new_state;
 
