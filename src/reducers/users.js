@@ -24,7 +24,34 @@ export default function users(state = {}, action) {
 		case 'users.delete':
 			new_state = JSON.parse(JSON.stringify(state));
 			new_state.list.splice( new_state.list.findIndex( user => user.id === parseInt(action.id, 10) ), 1);
+			return new_state;
+
+		case 'users.add':
+			new_state = JSON.parse(JSON.stringify(state));
+			const id = Number(Math.random() * 1000000).toPrecision(6);
+			new_state.list.unshift({
+				id: id,
+				username: action.username,
+				job: action.job
+			});
+			return new_state;
+
+		case 'users.edit':
+			new_state = JSON.parse(JSON.stringify(state));
+			for(const user of new_state.list){
+				if(user.id === action.id){
+					Object.assign(user, {
+						username: action.username,
+						job: action.job
+					});
+					break;
+				}
+			}
 			return new_state;	
+
+		case 'users.fetchListSuccess':
+			new_state.list = action.users;
+			return new_state;
 
 		default:
 			return state;

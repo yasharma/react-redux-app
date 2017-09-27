@@ -2,18 +2,20 @@ import React, { Component } from 'react';
 import { PageHeader, Form, FormGroup, Col, Button, FormControl, Glyphicon, InputGroup, HelpBlock } from 'react-bootstrap';
 import { Field, reduxForm } from 'redux-form';
 import {connect} from 'react-redux';
+import {goBack} from 'react-router-redux';
 
 class UserEdit extends Component {
 	form_type;
 	constructor(props) {
 		super(props);
 		this.form_type = (props.initialValues.id > 0) ?'edit':'add';
+		this.formSubmit = this.formSubmit.bind(this);
 	}
   	render() {
     	return (
      		<div>
         		<PageHeader>{'edit' === this.form_type ? 'User Edit' : 'User Add'}</PageHeader>
-        		<Form horizontal>
+        		<Form horizontal onSubmit={this.props.handleSubmit(this.formSubmit)}>
         			<Field name="username" component={UserEdit.renderUsername} />
         			<Field name="job" component={UserEdit.renderJob} />
         			<FormGroup>
@@ -54,6 +56,16 @@ class UserEdit extends Component {
   				</Col>
   			</FormGroup>
   		);
+  	}
+
+  	formSubmit(values) {
+  		this.props.dispatch({
+  			type: `users.${this.form_type}`,
+  			id: values.id,
+  			username: values.username,
+  			job: values.job
+  		});
+  		this.props.dispatch(goBack());
   	}
 }
 UserEdit = reduxForm({
